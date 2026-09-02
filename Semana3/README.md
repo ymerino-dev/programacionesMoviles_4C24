@@ -24,3 +24,5 @@ Aplicación de consola desarrollada en Kotlin para simular el financiamiento de 
 
 ## Captura de Ejecución
 *(Nota: Adjunta aquí la captura de pantalla de tu consola de Android Studio donde se vea el programa funcionando con el calendario de pagos)*
+
+![Captura de la calculadora](sem3.png)
