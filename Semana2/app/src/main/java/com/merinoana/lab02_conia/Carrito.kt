@@ -22,19 +22,26 @@ fun calcularTotal(subtotal: Double, igv: Double): Double {
     return subtotal + igv
 }
 
+// --- INICIO PARTE 5: Descuentos ---
+fun calcularDescuento(total: Double): Double {
+    return when {
+        total > 5000 -> total * 0.10
+        total > 3000 -> total * 0.05
+        else -> 0.0
+    }
+}
+// --- FIN PARTE 5 ---
 
 fun mostrarDetalle(productos: List<Producto>) {
     println("--------- DETALLE DEL CARRITO --------")
     var i = 1
     for (p in productos) {
         val importe = p.precio * p.cantidad
-        // %-20s alinea a la izquierda (20 espacios), %8.2f alinea a la derecha (8 espacios, 2 decimales)
         println(String.format("%d. %-20s x%d S/ %8.2f", i, p.nombre, p.cantidad, importe))
         i++
     }
     println("--------------------------------------")
 }
-
 
 fun main() {
     println("=========================================")
@@ -64,16 +71,33 @@ fun main() {
         println()
     }
 
-    // Llamando a la funcion de formato
     mostrarDetalle(carrito)
 
     val subtotal = calcularSubtotal(carrito)
     val igv = calcularIGV(subtotal)
     val totalPagar = calcularTotal(subtotal, igv)
 
-    // Totales alineados con 2 decimales
+    // Calculando descuento
+    val descuento = calcularDescuento(totalPagar)
+
     println(String.format("Cantidad de productos : %d", carrito.size))
     println(String.format("Subtotal              : S/ %.2f", subtotal))
     println(String.format("IGV (18%%)             : S/ %.2f", igv))
     println(String.format("TOTAL A PAGAR         : S/ %.2f", totalPagar))
+
+    // --- INICIO PARTE 5: Reporte de producto más caro y descuento ---
+    val masCaro = carrito.maxByOrNull { it.precio }
+    if (masCaro != null) {
+        println(String.format("Producto mas caro     : %s (S/%.2f)", masCaro.nombre, masCaro.precio))
+    }
+
+    if (descuento > 0) {
+        val porcentajeDesc = if (totalPagar > 5000) "10%" else "5%"
+        val umbral = if (totalPagar > 5000) 5000 else 3000
+        println(String.format("Descuento aplicado    : %s (Compra mayor a S/ %d)", porcentajeDesc, umbral))
+        println(String.format("TOTAL CON DESCUENTO   : S/ %.2f", totalPagar - descuento))
+    } else {
+        println("Descuento aplicado    : Ninguno (No supera S/ 3000)")
+    }
+
 }
