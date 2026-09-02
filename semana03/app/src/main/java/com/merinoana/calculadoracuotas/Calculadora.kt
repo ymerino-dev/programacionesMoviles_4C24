@@ -36,4 +36,21 @@ fun main() {
     val montoTotalAPagar = montoInicial + montoInteres
     val pagoMensual = montoTotalAPagar / cuotas
 
+    // Mostrar Resultados
+    println("\n==================================")
+    println("      RESUMEN DE LA COMPRA")
+    println("==================================")
+    println("Producto: $nombreProducto")
+    println("Monto inicial: S/ $montoInicial")
+    println("Interés aplicado: ${(porcentajeInteres * 100).toInt()}%")
+    println("Monto a pagar con interés: S/ $montoTotalAPagar")
+    println("Pago mensual: S/ $pagoMensual")
+
+    // Calendario de pagos
+    println("\n--- CALENDARIO DE PAGOS ($cuotas MESES) ---")
+    for (mes in 1..cuotas) {
+        println("Mes $mes: S/ $pagoMensual")
+    }
+    println("==================================")
+
 }
