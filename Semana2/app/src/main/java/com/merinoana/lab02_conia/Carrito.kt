@@ -22,7 +22,7 @@ fun calcularTotal(subtotal: Double, igv: Double): Double {
     return subtotal + igv
 }
 
-// --- INICIO PARTE 4: Reporte con formato ---
+
 fun mostrarDetalle(productos: List<Producto>) {
     println("--------- DETALLE DEL CARRITO --------")
     var i = 1
@@ -34,7 +34,7 @@ fun mostrarDetalle(productos: List<Producto>) {
     }
     println("--------------------------------------")
 }
-// --- FIN PARTE 4 ---
+
 
 fun main() {
     println("=========================================")
