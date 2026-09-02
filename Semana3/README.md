@@ -23,4 +23,4 @@ Aplicación de consola desarrollada en Kotlin para simular el financiamiento de 
 - No usar librerías de Java como Scanner, usar código 100% nativo de Kotlin (readln)..*
 
 ## Captura de Ejecución
-*(Nota: Adjunta aquí la captura de pantalla de tu consola de Android Studio donde se vea el programa funcionando con el calendario de pagos)*
+<img width="690" height="732" alt="resultado sem3" src="https://github.com/user-attachments/assets/672d6b3a-5784-49ed-84e0-617a2c75f487" />
