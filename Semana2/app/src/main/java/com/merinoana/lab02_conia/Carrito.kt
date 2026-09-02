@@ -1,4 +1,4 @@
-package com.merinoana.lab02_conia
+package com.merinoana.lab02_sinia
 
 data class Producto(
     val nombre: String,
@@ -22,7 +22,6 @@ fun calcularTotal(subtotal: Double, igv: Double): Double {
     return subtotal + igv
 }
 
-
 fun calcularDescuento(total: Double): Double {
     return when {
         total > 5000 -> total * 0.10
@@ -31,16 +30,15 @@ fun calcularDescuento(total: Double): Double {
     }
 }
 
-
 fun mostrarDetalle(productos: List<Producto>) {
-    println("--------- DETALLE DEL CARRITO --------")
+    println("\n--------- DETALLE DEL CARRITO ---------")
     var i = 1
     for (p in productos) {
         val importe = p.precio * p.cantidad
-        println(String.format("%d. %-20s x%d S/ %8.2f", i, p.nombre, p.cantidad, importe))
+        println(String.format("%d. %-20s x%d   S/ %7.2f", i, p.nombre, p.cantidad, importe))
         i++
     }
-    println("--------------------------------------")
+    println("-----------------------------------------")
 }
 
 fun main() {
@@ -64,7 +62,7 @@ fun main() {
         val cantidadProd = readln().toInt()
 
         carrito.add(Producto(nombreProd, precioProd, cantidadProd))
-        println("-> Producto agregado: $nombreProd\n")
+        println("Producto agregado: $nombreProd\n")
 
         print("¿Desea agregar otro producto? (s/n): ")
         if (readln().lowercase() != "s") agregarMas = false
@@ -76,28 +74,27 @@ fun main() {
     val subtotal = calcularSubtotal(carrito)
     val igv = calcularIGV(subtotal)
     val totalPagar = calcularTotal(subtotal, igv)
-
-    // Calculando descuento
     val descuento = calcularDescuento(totalPagar)
 
     println(String.format("Cantidad de productos : %d", carrito.size))
-    println(String.format("Subtotal              : S/ %.2f", subtotal))
-    println(String.format("IGV (18%%)             : S/ %.2f", igv))
-    println(String.format("TOTAL A PAGAR         : S/ %.2f", totalPagar))
+    println(String.format("Subtotal              : S/ %7.2f", subtotal))
+    println(String.format("IGV (18%%)             : S/ %7.2f", igv))
+    println(String.format("TOTAL A PAGAR         : S/ %7.2f", totalPagar))
+    println("-----------------------------------------")
 
-    // --- INICIO PARTE 5: Reporte de producto más caro y descuento ---
     val masCaro = carrito.maxByOrNull { it.precio }
     if (masCaro != null) {
-        println(String.format("Producto mas caro     : %s (S/%.2f)", masCaro.nombre, masCaro.precio))
+        println(String.format("\nProducto mas caro: %s (S/ %.2f)", masCaro.nombre, masCaro.precio))
     }
 
     if (descuento > 0) {
         val porcentajeDesc = if (totalPagar > 5000) "10%" else "5%"
         val umbral = if (totalPagar > 5000) 5000 else 3000
-        println(String.format("Descuento aplicado    : %s (Compra mayor a S/ %d)", porcentajeDesc, umbral))
+        println("Descuento aplicado: $porcentajeDesc por compra mayor a S/ $umbral")
         println(String.format("TOTAL CON DESCUENTO   : S/ %.2f", totalPagar - descuento))
     } else {
-        println("Descuento aplicado    : Ninguno (No supera S/ 3000)")
+        println("Descuento aplicado: Ninguno")
     }
 
+    println("\nGracias por su compra, $nombreCliente!")
 }
