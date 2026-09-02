@@ -32,4 +32,23 @@ fun main() {
     print("Ingrese el nombre del cliente: ")
     val nombreCliente = readln()
     println("Cliente: $nombreCliente\n")
+
+    val carrito = mutableListOf<Producto>()
+
+    var agregarMas = true
+    while (agregarMas) {
+        print("Ingrese producto: ")
+        val nombreProd = readln()
+        print("Ingrese precio: ")
+        val precioProd = readln().toDouble()
+        print("Ingrese cantidad: ")
+        val cantidadProd = readln().toInt()
+
+        carrito.add(Producto(nombreProd, precioProd, cantidadProd))
+        println("-> Producto agregado: $nombreProd\n")
+
+        print("¿Desea agregar otro producto? (s/n): ")
+        if (readln().lowercase() != "s") agregarMas = false
+        println()
+    }
 }
