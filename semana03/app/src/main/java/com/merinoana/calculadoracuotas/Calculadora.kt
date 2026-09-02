@@ -21,5 +21,19 @@ fun main() {
             println("-> Error: Valor inválido. Debe elegir 6, 12 o 24 cuotas.\n")
         }
     }
+    // Cálculos matemáticos
+    val montoInicial = precio * cantidad
+
+    // Determinar el porcentaje según las cuotas (20%, 40% o 60%)
+    val porcentajeInteres = when (cuotas) {
+        6 -> 0.20
+        12 -> 0.40
+        24 -> 0.60
+        else -> 0.0
+    }
+
+    val montoInteres = montoInicial * porcentajeInteres
+    val montoTotalAPagar = montoInicial + montoInteres
+    val pagoMensual = montoTotalAPagar / cuotas
 
 }
