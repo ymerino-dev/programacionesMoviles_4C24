@@ -22,7 +22,7 @@ fun calcularTotal(subtotal: Double, igv: Double): Double {
     return subtotal + igv
 }
 
-// --- INICIO PARTE 5: Descuentos ---
+
 fun calcularDescuento(total: Double): Double {
     return when {
         total > 5000 -> total * 0.10
@@ -30,7 +30,7 @@ fun calcularDescuento(total: Double): Double {
         else -> 0.0
     }
 }
-// --- FIN PARTE 5 ---
+
 
 fun mostrarDetalle(productos: List<Producto>) {
     println("--------- DETALLE DEL CARRITO --------")
