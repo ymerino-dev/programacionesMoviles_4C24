@@ -1,13 +1,11 @@
 package com.merinoana.lab02_conia
 
-// Modelo de datos solicitado
 data class Producto(
     val nombre: String,
     val precio: Double,
     var cantidad: Int
 )
 
-// --- INICIO PARTE 3: Funciones de calculo ---
 fun calcularSubtotal(productos: List<Producto>): Double {
     var subtotal = 0.0
     for (p in productos) {
@@ -17,12 +15,26 @@ fun calcularSubtotal(productos: List<Producto>): Double {
 }
 
 fun calcularIGV(subtotal: Double): Double {
-    return subtotal * 0.18 // 18% del subtotal
+    return subtotal * 0.18
 }
 
 fun calcularTotal(subtotal: Double, igv: Double): Double {
     return subtotal + igv
 }
+
+// --- INICIO PARTE 4: Reporte con formato ---
+fun mostrarDetalle(productos: List<Producto>) {
+    println("--------- DETALLE DEL CARRITO --------")
+    var i = 1
+    for (p in productos) {
+        val importe = p.precio * p.cantidad
+        // %-20s alinea a la izquierda (20 espacios), %8.2f alinea a la derecha (8 espacios, 2 decimales)
+        println(String.format("%d. %-20s x%d S/ %8.2f", i, p.nombre, p.cantidad, importe))
+        i++
+    }
+    println("--------------------------------------")
+}
+// --- FIN PARTE 4 ---
 
 fun main() {
     println("=========================================")
@@ -52,12 +64,16 @@ fun main() {
         println()
     }
 
-    // Llamando a las funciones para mostrar resultados (Parte 3)
+    // Llamando a la funcion de formato
+    mostrarDetalle(carrito)
+
     val subtotal = calcularSubtotal(carrito)
     val igv = calcularIGV(subtotal)
     val totalPagar = calcularTotal(subtotal, igv)
 
-    println("Subtotal : S/ $subtotal")
-    println("IGV (18%): S/ $igv")
-    println("TOTAL    : S/ $totalPagar")
+    // Totales alineados con 2 decimales
+    println(String.format("Cantidad de productos : %d", carrito.size))
+    println(String.format("Subtotal              : S/ %.2f", subtotal))
+    println(String.format("IGV (18%%)             : S/ %.2f", igv))
+    println(String.format("TOTAL A PAGAR         : S/ %.2f", totalPagar))
 }
