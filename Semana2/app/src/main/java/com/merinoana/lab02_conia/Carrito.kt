@@ -51,4 +51,13 @@ fun main() {
         if (readln().lowercase() != "s") agregarMas = false
         println()
     }
+
+    // Llamando a las funciones para mostrar resultados (Parte 3)
+    val subtotal = calcularSubtotal(carrito)
+    val igv = calcularIGV(subtotal)
+    val totalPagar = calcularTotal(subtotal, igv)
+
+    println("Subtotal : S/ $subtotal")
+    println("IGV (18%): S/ $igv")
+    println("TOTAL    : S/ $totalPagar")
 }
