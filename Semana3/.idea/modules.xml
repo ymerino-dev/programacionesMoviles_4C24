@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CalculadoraCuotas.iml" filepath="$PROJECT_DIR$/.idea/modules/CalculadoraCuotas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/CalculadoraCuotas.app.unitTest.iml" />
+    </modules>
+  </component>
+</project>
