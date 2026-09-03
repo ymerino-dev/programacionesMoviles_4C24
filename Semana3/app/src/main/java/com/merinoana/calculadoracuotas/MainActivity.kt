@@ -32,10 +32,3 @@ class MainActivity : ComponentActivity() {
 
 
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    CalculadoraCuotasTheme {
-        Greeting("Android")
-    }
-}
