@@ -20,8 +20,6 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalculadoraCuotasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
                         PantallaRegistro( Modifier.padding(innerPadding))
                     )
                 }
@@ -102,6 +100,11 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                     }
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Text(
+                        text = "✓ Producto registrado correctamente",
+                        color = Color(0xFF2E7D32)
+
                 }
 
         }
