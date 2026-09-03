@@ -1,4 +1,4 @@
-package com.merinoana.calculadoracuotas
+    package com.merinoana.calculadoracuotas
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -30,13 +30,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
